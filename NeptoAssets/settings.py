@@ -94,7 +94,7 @@ DATABASES = {
     'NAME': os.getenv('DB_NAME'),
     'USER': os.getenv('DB_USER'),
     'PASSWORD': os.getenv('DB_PASS'),
-    'HOST': os.getenv('DB_HOST'),
+    'HOST': 'ep-mute-block-a5inz8xd-pooler.us-east-2.aws.neon.tech',
     'PORT': '5432',
     'OPTIONS': {'sslmode': 'require'},
     'DISABLE_SERVER_SIDE_CURSORS': True,
