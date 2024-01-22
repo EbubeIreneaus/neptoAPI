@@ -28,6 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1']
 
+load_dotenv()
 
 # Application definition
 
@@ -81,11 +82,23 @@ WSGI_APPLICATION = 'NeptoAssets.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+  'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': os.getenv('DB_NAME'),
+    'USER': os.getenv('DB_USER'),
+    'PASSWORD': os.getenv('DB_PASS'),
+    'HOST': os.getenv('DB_HOST'),
+    'PORT': '5432',
+    'OPTIONS': {'sslmode': 'require'},
+    'DISABLE_SERVER_SIDE_CURSORS': True,
+  }
 }
 
 
@@ -120,7 +133,7 @@ USE_I18N = True
 USE_TZ = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'rbx112.truehost.cloud'
+EMAIL_HOST = 'mail.neptoasset.com.ng'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = os.getenv('EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASS')

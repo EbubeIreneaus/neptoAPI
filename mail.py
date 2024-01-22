@@ -12,7 +12,7 @@ class Mail:
 		send_mail(
 			subject= self.subject,
 			message= self.message,
-			from_email='Digital Assets<service@digitalassets.com.ng>',
+			from_email='Nepto Assets<service@neptoasset.com.ng>',
 			recipient_list= self.recipient,
 			fail_silently=self.silent_fail,
 			html_message=self.html_message

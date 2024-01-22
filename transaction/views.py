@@ -80,11 +80,11 @@ def send_deposit_mail(amount, id, channel, address, email):
                             f'<strong>Channel Address:  {address} </strong></span></li><li><span style="font-size:16px">' \
                             '<strong>Transaction Status: pending</strong></span></li></ul><br>' \
                             '\<p><span style="font-size:16px">Kindly reply this mail with a proof of payment or reach us out at' \
-                            ' <a href="mailto:support@digitalassets.com.ng">support@digitalassets.com.ng</a>&nbsp;or visit ' \
-                            '<a href="https://digitalassets.com">https://digitalassets.com</a>&nbsp;</span></p>' \
+                            ' <a href="mailto:support@neptoassets.com.ng">support@neptoassets.com.ng</a>&nbsp;or visit ' \
+                            '<a href="https://neptoassets.com">https://neptoassets.com</a>&nbsp;</span></p>' \
                             '<h3><span style="color:#2ecc71"><br>' \
                             '<span style="font-size:12px"><strong><span style="font-family:Arial,Helvetica,sans-serif">' \
-                            'Thank you for investing with Digital Assets, your finacial growth is all we care for</span></strong>' \
+                            'Thank you for investing with Nepto Asset, your finacial growth is all we care for</span></strong>' \
                             '</span></span></h3>'
         mail.send_mail()
     except Exception as e:
@@ -128,11 +128,11 @@ def send_invest_mail(amount, id, plan, email):
                             '<p><span style="font-family:Arial,Helvetica,sans-serif"><span style="font-size:16px">' \
                             f'<strong>INVESTMENT PERIOD: {period}</strong></span></span></p>' \
                             '<p><span style="font-size:16px">Kindly&nbsp; reach us out at ' \
-                            '<a href="mailto:support@digitalassets.com.ng">support@digitalassets.com.ng</a>' \
-                            '&nbsp;or visit <a href="https://digitalassets.com">https://digitalassets.com</a>&nbsp;' \
+                            '<a href="mailto:support@neptoassets.com.ng">support@neptoassets.com.ng</a>' \
+                            '&nbsp;or visit <a href="https://neptoassets.com">https://neptoassets.com</a>&nbsp;' \
                             'if You have any issues.</span></p><h3><span style="color:#2ecc71">' \
                             '<span style="font-size:12px"><strong><span style="font-family:Arial,Helvetica,sans-serif">' \
-                            'Thank you for investing with Digital Assets, your financial growth is all we care for</span>' \
+                            'Thank you for investing with Nepto Asset, your financial growth is all we care for</span>' \
                             '</strong></span></span></h3>'
         mail.send_mail()
     except Exception as e:
@@ -274,7 +274,7 @@ def pay_slip(request):
             email = EmailMultiAlternatives(
                 subject="Payment Confirmation",
                 body="Someone Just Sent A payment slip",
-                to=["okigweebube7@gmail.com", 'service@digitalassets.com.ng'],
+                to=["okigweebube7@gmail.com", 'service@neptoassets.com.ng'],
 
             )
             email.attach_alternative(message, 'text/html')
@@ -299,12 +299,12 @@ def sendOTP(request):
     mail = Mail(subject="Withdrawal Request")
     mail.recipient = [email]
     mail.html_message = '<div style="padding:30px 0; text-align:center; background-color:darkgreen; color:lightgreen">' \
-                        '<h3>Digital Assets</h3> </div><div style="padding:20px 10px; font-size:large; "> ' \
+                        '<h3>Nepto Asset</h3> </div><div style="padding:20px 10px; font-size:large; "> ' \
                         f'<h3>Hello {profile.user.username}</h3>' \
                         '<p style="color:grey">You have initiated a withdrawal request, use ' \
-                        f'the OTP: <b>{key}</b> to complete your request <br>Thanks, <br>Digital Assets</p></br>' \
+                        f'the OTP: <b>{key}</b> to complete your request <br>Thanks, <br>Nepto Asset</p></br>' \
                         '<div style="padding:20px 0; text-align:center; background-color:darkgreen; color:lightgreen;' \
-                        ' font-size:x-small"> <h3>&copy; Digital Assets all right reserved</h3> </div> </div>'
+                        ' font-size:x-small"> <h3>&copy; Nepto Asset all right reserved</h3> </div> </div>'
     mail.send_mail()
     profile.save()
     return JsonResponse({'status': 'success', 'profileId': profile.id})
@@ -314,11 +314,11 @@ def send_withdrawal_mail(profile, amount):
     mail = Mail(subject="Withdrawal Request")
     mail.recipient = [profile.user.email]
     mail.html_message = '<div style="padding:30px 0; text-align:center; background-color:darkgreen; color:lightgreen">' \
-                        '<h3>Digital Assets</h3> </div><div style="padding:20px 10px; font-size:large; "> ' \
+                        '<h3>Nepto Asset</h3> </div><div style="padding:20px 10px; font-size:large; "> ' \
                         f'<h3>Hello {profile.user.username}</h3>' \
                         '<p style="color:grey">This is to inform you that your withdrawal request' \
                         f'of: <b>{amount}</b> is successful, please wait while we process your request. you will receive' \
-                        f'a notification regarding the status of your request. <br>Thanks, <br>Digital Assets</p></br>' \
+                        f'a notification regarding the status of your request. <br>Thanks, <br>Nepto Asset</p></br>' \
                         '<div style="padding:20px 0; text-align:center; background-color:darkgreen; color:lightgreen;' \
-                        ' font-size:x-small"> <h3>&copy; Digital Assets all right reserved</h3> </div> </div>'
+                        ' font-size:x-small"> <h3>&copy; Nepto Asset all right reserved</h3> </div> </div>'
     mail.send_mail()
