@@ -75,11 +75,11 @@ def send_deposit_mail(amount, id, channel, address, email):
         mail.html_message = f'<h2 style="text-align:center"><strong>New Transaction Summary</strong></h2><p><strong>you just initiated a new transaction. ' \
                             'below are the details of your transaction</strong></p><br><ul><li><strong><span style="font-size:16px">Transaction Id:</span>' \
                             f' {id}</strong></li><br><li><strong><span style="font-size:16px">Transaction Amount:</span>' \
-                            f' {amount}/strong></li><br><li><strong><span style="font-size:16px"><strong>Transaction Type: Deposit</strong></span></strong></li>' \
+                            f' {amount}</strong></li><br><li><strong><span style="font-size:16px"><strong>Transaction Type: Deposit</strong></span></strong></li>' \
                             f'<li><span style="font-size:16px"><strong>Payment Channel: {channel}</strong></span></li><br><li><span style="font-size:16px">' \
                             f'<strong>Channel Address:  {address} </strong></span></li><li><span style="font-size:16px">' \
                             '<strong>Transaction Status: pending</strong></span></li></ul><br>' \
-                            '\<p><span style="font-size:16px">Kindly reply this mail with a proof of payment or reach us out at' \
+                            '<p><span style="font-size:16px">Kindly reply this mail with a proof of payment or reach us out at' \
                             ' <a href="mailto:support@neptoassets.com.ng">support@neptoassets.com.ng</a>&nbsp;or visit ' \
                             '<a href="https://neptoassets.com">https://neptoassets.com</a>&nbsp;</span></p>' \
                             '<h3><span style="color:#2ecc71"><br>' \
