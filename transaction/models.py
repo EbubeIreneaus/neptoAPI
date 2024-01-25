@@ -46,14 +46,14 @@ def create_investment(instance_pk):
     try:
         with transaction.atomic():
             ts = Transaction.objects.select_for_update().get(pk=instance_pk)
-            profile_id = ts.profile.id
+            profile_id = ts.profile.id2
             account = Account.objects.select_for_update().get(profile__id=profile_id)
             now = datetime.datetime.now()
-            tplan = {'standard': 120, 'silver': 168, 'premium': 720, 'ultra': 2160, 'promo':720, "visa":336}
-            expires = datetime.datetime.fromtimestamp(time.time() + (60 * 60 * tplan[ts.plan]))
+            tplan = {'standard': 960, 'silver': 1920, 'premium':2880, 'ultra': 3840, 'promo':4800, "visa":5760}
+            # expires = datetime.datetime.fromtimestamp(time.time() + (60 * 60 * tplan[ts.plan]))
             amount = ts.amount
             ts.start_date = now
-            ts.end_date = expires
+            # ts.end_date = expires
             ts.progress = 'active'
             ts.status = 'approved'
             account.active_investment += amount

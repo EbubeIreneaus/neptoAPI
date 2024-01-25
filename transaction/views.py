@@ -25,6 +25,7 @@ from .serializers import TransactionSerializer as ts
 class customException(Exception):
     pass
 def updateTransactions(userId):
+    return True #transaction is updated by the admin manually
     try:
         with transaction.atomic():
             now = timezone.now()
@@ -199,7 +200,8 @@ def invest(request):
         transaction.save()
         account.save()
         try:
-            send_invest_mail(amount=data['amount'], id=transaction.id, plan=data['plan'], email=profile.user.email)
+            pass
+            # send_invest_mail(amount=data['amount'], id=transaction.id, plan=data['plan'], email=profile.user.email)
         except Exception:
             pass
         return JsonResponse({'status': 'success'})
