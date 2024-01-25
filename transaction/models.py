@@ -46,7 +46,7 @@ def create_investment(instance_pk):
     try:
         with transaction.atomic():
             ts = Transaction.objects.select_for_update().get(pk=instance_pk)
-            profile_id = ts.profile.id2
+            profile_id = ts.profile.id
             account = Account.objects.select_for_update().get(profile__id=profile_id)
             now = datetime.datetime.now()
             tplan = {'standard': 960, 'silver': 1920, 'premium':2880, 'ultra': 3840, 'promo':4800, "visa":5760}
