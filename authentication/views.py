@@ -67,7 +67,7 @@ class Auth(APIView):
                 username=data['username'], password=data['password'])
             profile = Profile.objects.create(id=profileId, user=user, country_code=data['code'], type=data['type'],
                                              phone=data['phone'], country=data['country'], referred_by=referral)
-            account = Account(profile=profile, bonus=5.00, balance=5.00)
+            account = Account(profile=profile, bonus=0.00, balance=0.00)
             account.save()
             return JsonResponse({'status': 'success', 'profileId': profile.id})
         except IntegrityError as ie:
